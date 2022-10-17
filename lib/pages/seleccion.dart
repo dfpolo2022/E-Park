@@ -1,102 +1,17 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, prefer_final_fields, sort_child_properties_last
-import 'package:e_park/pages/seleccion.dart';
-import 'package:e_park/pages/mapa.dart';
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
+import 'package:e_park/pages/mapa.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class SeleccionPage extends StatefulWidget {
+  const SeleccionPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'E-Park',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
-      home: const MyHomePage(title: 'E-Park'),
-    );
-  }
+  State<SeleccionPage> createState() => _SeleccionPageState();
 }
 
-Future<void> _showMyDialog(BuildContext context, String index) async {
-  return showDialog<void>(
-    context: context,
-    builder: (_) => popupConfirmacion(context, index),
-  );
-}
-
-Widget popupConfirmacion(BuildContext context, String index) {
-  return AlertDialog(
-    title: const Text(
-      'Confirmación',
-      style: TextStyle(fontWeight: FontWeight.bold),
-    ),
-    content:
-        Text('Usted ha seleccionado el parqueadero #$index, ¿Sabe llegar?'),
-    actions: <Widget>[
-      TextButton(
-        child: Text(
-          'Si',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        onPressed: () {
-          Navigator.of(context).pop();
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => SeleccionPage()));
-        },
-      ),
-      TextButton(
-        child: Text(
-          'No',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        onPressed: () {
-          Navigator.of(context).pop();
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => MapaPage()));
-        },
-      ),
-      TextButton(
-        child: Text(
-          'Cancelar',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
-      ),
-    ],
-    elevation: 24.0,
-  );
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class _SeleccionPageState extends State<SeleccionPage> {
   int _selectedIndex = 0;
-
-  String _tiempoOcho = '15 minutos';
-  String _parqueoOcho = '15 cupos';
-
-  String _tiempoNueve = '10 minutos';
-  String _parqueoNueve = '6 cupos';
-
-  String _tiempoDiez = '20 minutos';
-  String _parqueoDiez = '30 cupos';
-
-  String _tiempoDoce = '13 minutos';
-  String _parqueoDoce = '4 cupos';
 
   void _onItemTapped(int index) {
     setState(() {
@@ -109,7 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         leading: const Icon(Icons.local_parking_outlined),
-        title: Text(widget.title),
+        title: Text('E-Park'),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.supervised_user_circle),
@@ -149,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Expanded(
                   flex: 1,
                   child: const Text(
-                    '¡Bienvenido, Usuario!',
+                    'Usted ha seleccionado el siguiente parqueadero:',
                     style: TextStyle(
                         color: Colors.red, fontStyle: FontStyle.italic),
                     textAlign: TextAlign.center,
@@ -159,8 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   flex: 3,
                   child: Container(
                       alignment: Alignment.center,
-                      decoration:
-                          BoxDecoration(border: Border.all(color: Colors.red)),
+                      color: Colors.red,
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
@@ -183,27 +97,13 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Container(),
                           ),
                           Expanded(
-                            flex: 3,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    Icon(Icons.access_time_filled),
-                                    Text(_tiempoOcho),
-                                  ],
-                                ),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    Icon(Icons.local_parking_outlined),
-                                    Text(_parqueoOcho),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
+                              flex: 3,
+                              child: const Text(
+                                'SELECCIONADO',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              )),
                           Expanded(
                             flex: 3,
                             child: GestureDetector(
@@ -211,9 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 alignment: Alignment.center,
                                 iconSize: 70,
                                 icon: Icon(Icons.check_box_outlined),
-                                onPressed: () async {
-                                  await _showMyDialog(context, '8');
-                                },
+                                onPressed: null,
                               ),
                             ),
                           )
@@ -262,14 +160,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Icon(Icons.access_time_filled),
-                                    Text(_tiempoNueve),
+                                    Text('-:-'),
                                   ],
                                 ),
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Icon(Icons.local_parking_outlined),
-                                    Text(_parqueoNueve),
+                                    Text('-:-'),
                                   ],
                                 )
                               ],
@@ -279,13 +177,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             flex: 3,
                             child: GestureDetector(
                               child: IconButton(
-                                alignment: Alignment.center,
-                                iconSize: 70,
-                                icon: Icon(Icons.check_box_outlined),
-                                onPressed: () async {
-                                  await _showMyDialog(context, '9');
-                                },
-                              ),
+                                  alignment: Alignment.center,
+                                  iconSize: 70,
+                                  icon: Icon(Icons.check_box_outlined),
+                                  onPressed: null),
                             ),
                           )
                         ],
@@ -333,14 +228,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Icon(Icons.access_time_filled),
-                                    Text(_tiempoDiez),
+                                    Text('-:-'),
                                   ],
                                 ),
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Icon(Icons.local_parking_outlined),
-                                    Text(_parqueoDiez),
+                                    Text('-:-'),
                                   ],
                                 )
                               ],
@@ -353,9 +248,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 alignment: Alignment.center,
                                 iconSize: 70,
                                 icon: Icon(Icons.check_box_outlined),
-                                onPressed: () async {
-                                  await _showMyDialog(context, '10');
-                                },
+                                onPressed: null,
                               ),
                             ),
                           )
@@ -404,14 +297,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Icon(Icons.access_time_filled),
-                                    Text(_tiempoDoce),
+                                    Text('-:-'),
                                   ],
                                 ),
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Icon(Icons.local_parking_outlined),
-                                    Text(_parqueoDoce),
+                                    Text('-:-'),
                                   ],
                                 )
                               ],
@@ -424,9 +317,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 alignment: Alignment.center,
                                 iconSize: 70,
                                 icon: Icon(Icons.check_box_outlined),
-                                onPressed: () async {
-                                  await _showMyDialog(context, '12');
-                                },
+                                onPressed: null,
                               ),
                             ),
                           )
@@ -441,11 +332,18 @@ class _MyHomePageState extends State<MyHomePage> {
                     )),
                 Expanded(
                   flex: 1,
-                  child: const Text(
-                    'Seleccione un parqueadero.',
-                    style: TextStyle(
-                        color: Colors.red, fontStyle: FontStyle.italic),
-                    textAlign: TextAlign.center,
+                  child: TextButton(
+                    child: const Text(
+                      'No sé llegar al parqueadero.',
+                      style: TextStyle(
+                          color: Colors.red, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => MapaPage()));
+                    },
+                    style: ButtonStyle(alignment: Alignment.topCenter),
                   ),
                 ),
               ],
