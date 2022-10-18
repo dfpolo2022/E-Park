@@ -159,14 +159,20 @@ class _MyHomePageState extends State<MyHomePage> {
                   flex: 3,
                   child: Container(
                       alignment: Alignment.center,
-                      decoration:
-                          BoxDecoration(border: Border.all(color: Colors.red)),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.red),
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           Expanded(
                             flex: 3,
                             child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                color: Colors.red,
+                              ),
                               child: const Text(
                                 '8',
                                 style: TextStyle(
@@ -174,7 +180,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               ),
-                              color: Colors.red,
                               alignment: Alignment.center,
                             ),
                           ),
@@ -230,14 +235,21 @@ class _MyHomePageState extends State<MyHomePage> {
                   flex: 3,
                   child: Container(
                       alignment: Alignment.center,
-                      decoration:
-                          BoxDecoration(border: Border.all(color: Colors.red)),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.red),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           Expanded(
                             flex: 3,
                             child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                color: Colors.red,
+                              ),
                               child: const Text(
                                 '9',
                                 style: TextStyle(
@@ -245,7 +257,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               ),
-                              color: Colors.red,
                               alignment: Alignment.center,
                             ),
                           ),
@@ -301,14 +312,21 @@ class _MyHomePageState extends State<MyHomePage> {
                   flex: 3,
                   child: Container(
                       alignment: Alignment.center,
-                      decoration:
-                          BoxDecoration(border: Border.all(color: Colors.red)),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.red),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           Expanded(
                             flex: 3,
                             child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                color: Colors.red,
+                              ),
                               child: const Text(
                                 '10',
                                 style: TextStyle(
@@ -316,7 +334,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               ),
-                              color: Colors.red,
                               alignment: Alignment.center,
                             ),
                           ),
@@ -372,14 +389,21 @@ class _MyHomePageState extends State<MyHomePage> {
                   flex: 3,
                   child: Container(
                       alignment: Alignment.center,
-                      decoration:
-                          BoxDecoration(border: Border.all(color: Colors.red)),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.red),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           Expanded(
                             flex: 3,
                             child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                color: Colors.red,
+                              ),
                               child: const Text(
                                 '12',
                                 style: TextStyle(
@@ -387,7 +411,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               ),
-                              color: Colors.red,
                               alignment: Alignment.center,
                             ),
                           ),

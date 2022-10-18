@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-class MapaPage extends StatelessWidget {
+class CodePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,32 +46,27 @@ class MapaPage extends StatelessWidget {
                   Expanded(
                     flex: 5,
                     child: Container(
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            color: Colors.red,
-                            border: Border.all(color: Colors.red),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        child: Image.network(
-                            'https://2.bp.blogspot.com/-rAvZDK7KWWU/W4GIDCyrHTI/AAAAAAAAAFI/cn250kQYsD8_u8P-6FkrBixQ3QZ4ApsxACLcBGAs/s1600/route_google_map.png')),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.red),
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Icon(
+                        Icons.qr_code_2,
+                        size: 350.0,
+                      ),
+                    ),
                   ),
                   Expanded(
                     flex: 1,
                     child: Container(),
                   ),
                   Expanded(
-                      flex: 1,
-                      child: TextButton(
-                        child: const Text(
-                          'Abrir en Google Maps',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        onPressed: () {
-                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                              content: Text(
-                                  'No Google Maps implementation in UI demonstration.')));
-                        },
-                      )),
+                    flex: 1,
+                    child: const Text(
+                      'Mostrar este código QR en cualquier estación de pago automático disponible dentro del campus universitario.',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
                   Expanded(
                       flex: 1,
                       child: TextButton(

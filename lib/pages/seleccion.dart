@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:e_park/pages/mapa.dart';
+import 'package:e_park/pages/code.dart';
+import 'package:e_park/pages/pagos.dart';
 
 class SeleccionPage extends StatefulWidget {
   const SeleccionPage({Key? key}) : super(key: key);
@@ -74,7 +76,11 @@ class _SeleccionPageState extends State<SeleccionPage> {
                   flex: 3,
                   child: Container(
                       alignment: Alignment.center,
-                      color: Colors.red,
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        border: Border.all(color: Colors.red),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
@@ -88,7 +94,12 @@ class _SeleccionPageState extends State<SeleccionPage> {
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               ),
-                              color: Colors.red,
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                border: Border.all(color: Colors.red),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                              ),
                               alignment: Alignment.center,
                             ),
                           ),
@@ -110,8 +121,13 @@ class _SeleccionPageState extends State<SeleccionPage> {
                               child: IconButton(
                                 alignment: Alignment.center,
                                 iconSize: 70,
-                                icon: Icon(Icons.check_box_outlined),
-                                onPressed: null,
+                                icon: Icon(Icons.qr_code_2),
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => CodePage()));
+                                },
                               ),
                             ),
                           )
@@ -128,8 +144,10 @@ class _SeleccionPageState extends State<SeleccionPage> {
                   flex: 3,
                   child: Container(
                       alignment: Alignment.center,
-                      decoration:
-                          BoxDecoration(border: Border.all(color: Colors.red)),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.red),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
@@ -143,7 +161,12 @@ class _SeleccionPageState extends State<SeleccionPage> {
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               ),
-                              color: Colors.red,
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                border: Border.all(color: Colors.red),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                              ),
                               alignment: Alignment.center,
                             ),
                           ),
@@ -196,8 +219,10 @@ class _SeleccionPageState extends State<SeleccionPage> {
                   flex: 3,
                   child: Container(
                       alignment: Alignment.center,
-                      decoration:
-                          BoxDecoration(border: Border.all(color: Colors.red)),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.red),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
@@ -211,7 +236,12 @@ class _SeleccionPageState extends State<SeleccionPage> {
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               ),
-                              color: Colors.red,
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                border: Border.all(color: Colors.red),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                              ),
                               alignment: Alignment.center,
                             ),
                           ),
@@ -265,8 +295,10 @@ class _SeleccionPageState extends State<SeleccionPage> {
                   flex: 3,
                   child: Container(
                       alignment: Alignment.center,
-                      decoration:
-                          BoxDecoration(border: Border.all(color: Colors.red)),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.red),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
@@ -280,7 +312,12 @@ class _SeleccionPageState extends State<SeleccionPage> {
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               ),
-                              color: Colors.red,
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                border: Border.all(color: Colors.red),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                              ),
                               alignment: Alignment.center,
                             ),
                           ),
