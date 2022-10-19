@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:e_park/pages/mapa.dart';
 import 'package:e_park/pages/code.dart';
 import 'package:e_park/pages/pagos.dart';
+import 'package:e_park/pages/cupos.dart';
 
 class SeleccionPage extends StatefulWidget {
   const SeleccionPage({Key? key}) : super(key: key);
@@ -19,6 +20,11 @@ class _SeleccionPageState extends State<SeleccionPage> {
     setState(() {
       _selectedIndex = index;
     });
+    if (index == 1) {
+      _selectedIndex = 0;
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => PagosPage()));
+    }
   }
 
   @override
@@ -104,16 +110,18 @@ class _SeleccionPageState extends State<SeleccionPage> {
                             ),
                           ),
                           Expanded(
-                            flex: 1,
-                            child: Container(),
-                          ),
-                          Expanded(
                               flex: 3,
-                              child: const Text(
-                                'SELECCIONADO',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
+                              child: TextButton(
+                                child: const Text(
+                                  'VER CUPOS',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                onPressed: () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => CuposPage())),
                               )),
                           Expanded(
                             flex: 3,

@@ -87,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
   String _tiempoOcho = '15 minutos';
-  String _parqueoOcho = '15 cupos';
+  String _parqueoOcho = '7 cupos';
 
   String _tiempoNueve = '10 minutos';
   String _parqueoNueve = '6 cupos';
