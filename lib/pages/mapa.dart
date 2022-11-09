@@ -1,9 +1,15 @@
 // ignore_for_file: prefer_const_constructors
-
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
+
+import '../Controllers/LocationController.dart';
 
 class MapaPage extends StatelessWidget {
-  @override
+  LocationController mapcontrol = LocationController();
+
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
@@ -44,17 +50,32 @@ class MapaPage extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    flex: 5,
-                    child: Container(
+                      flex: 5,
+                      child: Container(
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                             color: Colors.red,
                             border: Border.all(color: Colors.red),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
-                        child: Image.network(
-                            'https://2.bp.blogspot.com/-rAvZDK7KWWU/W4GIDCyrHTI/AAAAAAAAAFI/cn250kQYsD8_u8P-6FkrBixQ3QZ4ApsxACLcBGAs/s1600/route_google_map.png')),
-                  ),
+                        child: GoogleMap(
+                          initialCameraPosition: CameraPosition(
+
+                              /// you can use the lat long that was declared on the controller
+                              /// anyways many ways to do it.
+                              target: LatLng(mapcontrol.posinitial!.latitude,
+                                  mapcontrol.posinitial!.longitude),
+                              zoom: 16),
+                          minMaxZoomPreference: MinMaxZoomPreference(15.5, 19),
+                          zoomGesturesEnabled: true,
+                          cameraTargetBounds: CameraTargetBounds(
+                            LatLngBounds(
+                              northeast: LatLng(43.7970928, -79.3067414),
+                              southwest: LatLng(43.592580, -79.483674),
+                            ),
+                          ),
+                        ),
+                      )), //aca va el expanded
                   Expanded(
                     flex: 1,
                     child: Container(),
